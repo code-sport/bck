@@ -5,10 +5,14 @@
     "slug": "bck",
     "privacy": "public",
     "sdkVersion": "29.0.0",
-    "platforms": ["ios", "android"],
+    "platforms": [
+      "ios",
+      "android"
+    ],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
+    "githubUrl": "https://github.com/code-sport/bck",
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
