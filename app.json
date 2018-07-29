@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "bck",
-    "description": "A very interesting project.",
+    "name": "Budo-Club Karlsruhe",
+    "description": "App from the non profit sports club",
     "slug": "bck",
     "privacy": "public",
     "sdkVersion": "29.0.0",
@@ -21,7 +21,11 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "info.codesport.budoclubkarlsruhe"
+    },
+    "android": {
+      "package": "info.codesport.budoclubkarlsruhe"
     }
   }
 }
