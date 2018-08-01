@@ -2,7 +2,7 @@ import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import NewsList from "../components/news/NewsList";
 
-export default class NewsScreen extends React.Component {
+export default class NewsListScreen extends React.Component {
   static navigationOptions = {
     title: 'News',
   };

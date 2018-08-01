@@ -29,7 +29,8 @@
       "bundleIdentifier": "info.codesport.budoclubkarlsruhe"
     },
     "android": {
-      "package": "info.codesport.budoclubkarlsruhe"
+      "package": "info.codesport.budoclubkarlsruhe",
+      "versionCode": 2
     }
   }
 }

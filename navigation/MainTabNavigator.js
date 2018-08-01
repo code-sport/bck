@@ -1,11 +1,12 @@
 import React from 'react';
-import { Platform } from 'react-native';
-import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
+import {Platform} from 'react-native';
+import {createStackNavigator, createBottomTabNavigator} from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import NewsScreen from '../screens/NewsScreen';
+import NewsListScreen from '../screens/NewsListScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import NewsItem from "../components/news/NewsItem";
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -13,7 +14,7 @@ const HomeStack = createStackNavigator({
 
 HomeStack.navigationOptions = {
   tabBarLabel: 'Home',
-  tabBarIcon: ({ focused }) => (
+  tabBarIcon: ({focused}) => (
     <TabBarIcon
       focused={focused}
       name={
@@ -26,12 +27,13 @@ HomeStack.navigationOptions = {
 };
 
 const NewsStack = createStackNavigator({
-  Links: NewsScreen,
+  NewsList: NewsListScreen,
+  NewsItem: NewsItem,
 });
 
 NewsStack.navigationOptions = {
   tabBarLabel: 'News',
-  tabBarIcon: ({ focused }) => (
+  tabBarIcon: ({focused}) => (
     <TabBarIcon
       focused={focused}
       name={Platform.OS === 'ios' ? `ios-paper${focused ? '' : '-outline'}` : 'md-paper'}
@@ -45,7 +47,7 @@ const SettingsStack = createStackNavigator({
 
 SettingsStack.navigationOptions = {
   tabBarLabel: 'Settings',
-  tabBarIcon: ({ focused }) => (
+  tabBarIcon: ({focused}) => (
     <TabBarIcon
       focused={focused}
       name={Platform.OS === 'ios' ? `ios-options${focused ? '' : '-outline'}` : 'md-options'}
@@ -54,7 +56,8 @@ SettingsStack.navigationOptions = {
 };
 
 export default createBottomTabNavigator({
-  HomeStack,
-  LinksStack: NewsStack,
-  SettingsStack,
+  /*HomeStack,*/
+  NewsStack,
+  /* SettingsStack,*/
 });
+

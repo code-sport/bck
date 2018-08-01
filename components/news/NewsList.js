@@ -1,7 +1,7 @@
 import React from 'react';
 import {ActivityIndicator, FlatList, StyleSheet, View} from 'react-native';
 import {Ionicons} from '@expo/vector-icons';
-import NewsItem from "./NewsItem";
+import NewsListItem from "./NewsListItem";
 
 export default class NewsList extends React.Component {
 
@@ -20,7 +20,7 @@ export default class NewsList extends React.Component {
     return fetch(url)
       .then((response) => response.json())
       .then((responseJson) => {
-        console.debug("data loaded: %o", responseJson);
+        /*console.debug("data loaded: %o", responseJson);*/
 
         this.setState({
           isLoading: false,
@@ -58,7 +58,13 @@ export default class NewsList extends React.Component {
   }
 
   _renderItem = ({item}) => {
-    return (<NewsItem data={item} key={item.id.toString()}/>);
+    return (
+      <NewsListItem
+        data={item}
+        key={item.id.toString()}
+        navigation={this.props.navigation}
+      />
+    );
   };
 
 }
