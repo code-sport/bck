@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
+import {ScrollView, StyleSheet} from 'react-native';
 import NewsList from "../components/news/NewsList";
 
 export default class NewsListScreen extends React.Component {
@@ -12,7 +12,7 @@ export default class NewsListScreen extends React.Component {
       <ScrollView style={styles.container}>
         {/* Go ahead and delete ExpoLinksView and replace it with your
            * content, we just wanted to provide you with some helpful links */}
-        <NewsList />
+        <NewsList navigation={this.props.navigation}/>
       </ScrollView>
     );
   }
