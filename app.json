@@ -9,7 +9,7 @@
       "ios",
       "android"
     ],
-    "version": "1.0.1",
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "githubUrl": "https://github.com/code-sport/bck",
@@ -30,7 +30,15 @@
     },
     "android": {
       "package": "info.codesport.budoclubkarlsruhe",
-      "versionCode": 2
+      "versionCode": 3,
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=info.codesport.budoclubkarlsruhe",
+      "permissions": [
+
+      ]
+    },
+    "androidStatusBar": {
+      "barStyle": "dark-content",
+      "backgroundColor": "#000000"
     }
   }
 }
