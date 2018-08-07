@@ -16,12 +16,9 @@ export default class NewsCategories extends React.Component {
 
     let categoriesParam = this.props.categories.join();
     let url = 'http://www.budoclubkarlsruhe.de/wp-json/wp/v2/categories?include=' + categoriesParam;
-    console.debug("load data from: %s", url);
     return fetch(url)
       .then((response) => response.json())
       .then((responseJson) => {
-        /*console.debug("data loaded: %o", responseJson);*/
-
         this.setState({
           isLoading: false,
           dataSource: responseJson,
