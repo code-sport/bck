@@ -1,12 +1,10 @@
 import React from "react";
 import {View, Text, StyleSheet} from "react-native";
-import HTMLView from "react-native-htmlview";
 
 export default class NewsDate extends React.Component {
 
   render() {
 
-    console.debug(this.data);
     let date = new Date(this.props.date);
 
     return (

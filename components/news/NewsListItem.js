@@ -1,8 +1,9 @@
 import React from "react";
-import {StyleSheet, Text, View, Linking} from "react-native";
+import {StyleSheet, Text, View, Linking, ScrollView} from "react-native";
 import {createStackNavigator} from 'react-navigation';
 import HTMLView from 'react-native-htmlview';
 import NewsDate from "./NewsDate";
+import NewsCategories from "./NewsCategories";
 
 export default class NewsListItem extends React.Component {
 
@@ -19,6 +20,7 @@ export default class NewsListItem extends React.Component {
       <View style={styles.container}>
         <Text style={styles.title}>{this.data.title.rendered}</Text>
         <NewsDate style={styles.date} date={this.data.date}/>
+        <NewsCategories categories={this.data.categories}/>
         <HTMLView
           value={html}
           stylesheet={stylesWeb}
