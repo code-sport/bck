@@ -1,6 +1,7 @@
 import React from "react";
 import {Linking, StyleSheet, Text, ScrollView} from "react-native";
 import HTMLView from "react-native-htmlview";
+import NewsDate from "./NewsDate";
 
 export default class NewsItem extends React.Component {
 
@@ -21,7 +22,7 @@ export default class NewsItem extends React.Component {
     return (
       <ScrollView style={styles.container}>
         <Text style={styles.title}>{this.data.title.rendered}</Text>
-        <Text style={styles.date}>{this.data.date}</Text>
+        <NewsDate style={styles.date} date={this.data.date} />
         <HTMLView
           value={html}
           stylesheet={stylesWeb}

@@ -2,6 +2,7 @@ import React from "react";
 import {StyleSheet, Text, View, Linking} from "react-native";
 import {createStackNavigator} from 'react-navigation';
 import HTMLView from 'react-native-htmlview';
+import NewsDate from "./NewsDate";
 
 export default class NewsListItem extends React.Component {
 
@@ -17,7 +18,7 @@ export default class NewsListItem extends React.Component {
     return (
       <View style={styles.container}>
         <Text style={styles.title}>{this.data.title.rendered}</Text>
-        <Text style={styles.date}>{this.data.date}</Text>
+        <NewsDate style={styles.date} date={this.data.date}/>
         <HTMLView
           value={html}
           stylesheet={stylesWeb}
