@@ -1,33 +1,38 @@
 import React from "react";
 import {View, Text, StyleSheet, ActivityIndicator, FlatList} from "react-native";
-import NewsListItem from "./NewsListItem";
+import {NewsCategoriesModel} from "../../module/NewsCategoriesModel";
 
 export default class NewsCategories extends React.Component {
 
   constructor(props) {
     super(props);
+
     this.state = {
-      isLoading: true
+      isLoading: true,
+      dataSource: []
     };
+    this.model = new NewsCategoriesModel();
+  }
+
+  componentDidMount() {
     this.getCategoriesFromApi();
   }
 
   getCategoriesFromApi() {
 
-    let categoriesParam = this.props.categories.join();
-    let url = 'http://www.budoclubkarlsruhe.de/wp-json/wp/v2/categories?include=' + categoriesParam;
-    return fetch(url)
-      .then((response) => response.json())
-      .then((responseJson) => {
-        this.setState({
-          isLoading: false,
-          dataSource: responseJson,
-        }, function () {
+    let categoriesParam = this.props.categories;
+    categoriesParam.forEach((item) => {
 
-        });
-      }).catch((error) => {
-        console.error(error);
-      });
+      this.model.getItem(item).then(row => {
+          if (row) {
+            this.state.dataSource.push(row);
+          }
+        },
+        error => console.error(error)
+      );
+    });
+    console.log(this.state.dataSource);
+    this.state.isLoading = false;
   }
 
   render() {

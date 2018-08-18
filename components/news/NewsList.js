@@ -24,7 +24,7 @@ export default class NewsList extends React.Component {
 
     const {page} = this.state;
     let url = `http://www.budoclubkarlsruhe.de/wp-json/wp/v2/posts?page=${page}&results=20`;
-    console.debug("load data from: %s", url);
+    /*console.debug("load data from: %s", url);*/
     return fetch(url)
       .then((response) => response.json())
       .then((responseJson) => {
