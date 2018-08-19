@@ -35,10 +35,6 @@
       "permissions": [
 
       ]
-    },
-    "androidStatusBar": {
-      "barStyle": "dark-content",
-      "backgroundColor": "#000000"
     }
   }
 }

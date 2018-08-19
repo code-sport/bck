@@ -19,7 +19,7 @@ Anschließend bitte in der Konsole folgende Befehle ausführen
 Hierzu gibt es eine App namens Expo für [Android](https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=www) und [iOS](https://itunes.apple.com/app/apple-store/id982107779).
 6. In der App auf dem Smartphone nun die App auswählen und nun kann die App auf dem Smartphone ausgeführt werden.
 
-# Bezug der App
+## Bezug der App
 Momentan befindet sich die App noch in Entwicklung und kann nur im Insider-Programm im [Play Store](https://play.google.com/store/apps/details?id=info.codesport.budoclubkarlsruhe) heruntergeladen werden.
 
 

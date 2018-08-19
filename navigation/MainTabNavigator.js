@@ -7,6 +7,7 @@ import HomeScreen from '../screens/HomeScreen';
 import NewsListScreen from '../screens/NewsListScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import NewsItem from "../components/news/NewsItem";
+import ContactScreen from "../screens/ContactScreen";
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -41,6 +42,24 @@ NewsStack.navigationOptions = {
   ),
 };
 
+const ContactStack = createStackNavigator({
+  Contact: ContactScreen,
+});
+
+ContactStack.navigationOptions = {
+  tabBarLabel: 'Kontakt',
+  tabBarIcon: ({focused}) => (
+    <TabBarIcon
+      focused={focused}
+      name={
+        Platform.OS === 'ios'
+          ? `ios-contact${focused ? '' : '-outline'}`
+          : 'md-contact'
+      }
+    />
+  ),
+};
+
 const SettingsStack = createStackNavigator({
   Settings: SettingsScreen,
 });
@@ -58,6 +77,7 @@ SettingsStack.navigationOptions = {
 export default createBottomTabNavigator({
   /*HomeStack,*/
   NewsStack,
+  ContactStack,
   /* SettingsStack,*/
 });
 
