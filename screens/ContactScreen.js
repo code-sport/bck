@@ -1,5 +1,6 @@
 import React from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import {View, StyleSheet} from 'react-native';
+import ContactForm from "../components/contact/ContactForm";
 
 
 export default class ContactScreen extends React.Component {
@@ -10,7 +11,7 @@ export default class ContactScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Hier entsteht ein Kontaktformular</Text>
+        <ContactForm/>
       </View>
     );
   }
