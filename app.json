@@ -9,7 +9,7 @@
       "ios",
       "android"
     ],
-    "version": "1.0.3",
+    "version": "1.0.4",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "githubUrl": "https://github.com/code-sport/bck",
@@ -30,7 +30,7 @@
     },
     "android": {
       "package": "info.codesport.budoclubkarlsruhe",
-      "versionCode": 4,
+      "versionCode": 5,
       "playStoreUrl": "https://play.google.com/store/apps/details?id=info.codesport.budoclubkarlsruhe",
       "permissions": []
     }

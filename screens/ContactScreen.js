@@ -10,7 +10,11 @@ export default class ContactScreen extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View
+        style={styles.container}
+        behavior="padding"
+        enabled={true}
+      >
         <ContactForm/>
       </View>
     );
