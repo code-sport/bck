@@ -21,7 +21,7 @@
     "expo": "^30.0.1",
     "prop-types": "^15.6.2",
     "react": "16.5.2",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-29.0.0.tar.gz",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-30.0.0.tar.gz",
     "react-native-htmlview": "^0.13.0",
     "react-native-keyboard-aware-scroll-view": "^0.7.2",
     "react-navigation": "^2.16.0",

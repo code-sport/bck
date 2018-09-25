@@ -4,7 +4,7 @@
     "description": "App from the non profit sports club",
     "slug": "bck",
     "privacy": "public",
-    "sdkVersion": "29.0.0",
+    "sdkVersion": "30.0.0",
     "platforms": [
       "ios",
       "android"
