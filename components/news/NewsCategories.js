@@ -11,7 +11,7 @@ export default class NewsCategories extends React.Component {
       isLoading: true,
       dataSource: []
     };
-    this.model = new NewsCategoriesModel();
+    this.model = NewsCategoriesModel.getInstance();
   }
 
   componentDidMount() {
@@ -31,7 +31,6 @@ export default class NewsCategories extends React.Component {
         error => console.error(error)
       );
     });
-    console.log(this.state.dataSource);
     this.state.isLoading = false;
   }
 

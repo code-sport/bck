@@ -17,7 +17,6 @@ export default class NewsItem extends React.Component {
 
   render() {
 
-    console.debug(this.data);
     let html = this.data.content.rendered;
 
     return (

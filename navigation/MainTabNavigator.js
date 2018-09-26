@@ -78,6 +78,6 @@ export default createBottomTabNavigator({
   /*HomeStack,*/
   NewsStack,
   ContactStack,
-  /* SettingsStack,*/
+  SettingsStack,
 });
 

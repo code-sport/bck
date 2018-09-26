@@ -32,7 +32,6 @@ export default class NewsListItem extends React.Component {
 
   onLinkPress = (url) => {
     if (url === this.data.link) {
-      console.debug('clicked link: ', url);
       try {
         this.navigation.push('NewsItem', {data: this.data});
       } catch (e) {
