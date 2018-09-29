@@ -4,6 +4,7 @@ import {createStackNavigator} from 'react-navigation';
 import HTMLView from 'react-native-htmlview';
 import NewsDate from "./NewsDate";
 import NewsCategories from "./NewsCategories";
+import {AllHtmlEntities} from "html-entities";
 
 export default class NewsListItem extends React.Component {
 
@@ -14,11 +15,14 @@ export default class NewsListItem extends React.Component {
   }
 
   render() {
+    const entities = new AllHtmlEntities();
+
     let html = this.props.data.excerpt.rendered;
+    let title = entities.decode(this.data.title.rendered);
 
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>{this.data.title.rendered}</Text>
+        <Text style={styles.title}>{title}</Text>
         <NewsDate style={styles.date} date={this.data.date}/>
         <NewsCategories categories={this.data.categories}/>
         <HTMLView

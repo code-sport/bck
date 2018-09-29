@@ -3,6 +3,7 @@ import {Linking, StyleSheet, Text, ScrollView} from "react-native";
 import HTMLView from "react-native-htmlview";
 import NewsDate from "./NewsDate";
 import NewsCategories from "./NewsCategories";
+import {AllHtmlEntities} from 'html-entities';
 
 export default class NewsItem extends React.Component {
 
@@ -16,16 +17,20 @@ export default class NewsItem extends React.Component {
   };
 
   render() {
+    const entities = new AllHtmlEntities();
 
-    let html = this.data.content.rendered;
+
+    let contentHtml = this.data.content.rendered;
+    let title = entities.decode(this.data.title.rendered);
+    console.debug(title);
 
     return (
       <ScrollView style={styles.container}>
-        <Text style={styles.title}>{this.data.title.rendered}</Text>
-        <NewsDate style={styles.date} date={this.data.date} />
+        <Text style={styles.title}>{title}</Text>
+        <NewsDate style={styles.date} date={this.data.date}/>
         <NewsCategories categories={this.data.categories}/>
         <HTMLView
-          value={html}
+          value={contentHtml}
           stylesheet={stylesWeb}
           style={styles.content}
           onLinkPress={this._onLinkPress}
@@ -33,6 +38,7 @@ export default class NewsItem extends React.Component {
 
       </ScrollView>)
   }
+
   _onLinkPress = (url) => {
     if (url.startsWith('https://www.budoclubkarlsruhe.de/wp-content/uploads')) {
       console.debug('clicked link: ', url);
