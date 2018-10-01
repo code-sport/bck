@@ -4,6 +4,7 @@ import HTMLView from "react-native-htmlview";
 import NewsDate from "./NewsDate";
 import NewsCategories from "./NewsCategories";
 import {AllHtmlEntities} from 'html-entities';
+import Share from "./ShareButton";
 
 export default class NewsItem extends React.Component {
 
@@ -22,7 +23,6 @@ export default class NewsItem extends React.Component {
 
     let contentHtml = this.data.content.rendered;
     let title = entities.decode(this.data.title.rendered);
-    console.debug(title);
 
     return (
       <ScrollView style={styles.container}>
@@ -35,6 +35,7 @@ export default class NewsItem extends React.Component {
           style={styles.content}
           onLinkPress={this._onLinkPress}
         />
+        <Share url={this.data.guid.rendered}/>
 
       </ScrollView>)
   }
