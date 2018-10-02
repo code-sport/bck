@@ -4,28 +4,29 @@ import {Constants} from 'expo';
 import {NewsCategoriesModel} from "../../module/NewsCategoriesModel";
 
 export default class ConfigView extends React.Component {
+
   constructor(props) {
     super(props);
-    this.categories = [{id: 0, value: "loading ..."}];
+    const {manifest} = Constants;
+
+    let categories = [{id: 0, value: "loading ..."}];
+
+    this.sections = [
+      {data: categories, title: 'Categories'},
+      {data: [{value: manifest.version}], title: 'version'},
+      {data: [{value: manifest.sdkVersion}], title: 'sdkVersion'},
+    ];
 
     let categoriesModel = NewsCategoriesModel.getInstance();
     categoriesModel.getItems()
       .then((data) => {
-        this.categories = data;
-      }).catch((error)=>{
+        categories = data;
+      }).catch((error) => {
       console.error("Categories couldn't be loaded", error);
     });
   }
 
   render() {
-
-    const {manifest} = Constants;
-    const sections = [
-      {data: this.categories, title: 'Categories'},
-      {data: [{value: manifest.version}], title: 'version'},
-      {data: [{value: manifest.sdkVersion}], title: 'sdkVersion'},
-
-    ];
 
     return (
       <SectionList
@@ -35,7 +36,7 @@ export default class ConfigView extends React.Component {
         stickySectionHeadersEnabled={true}
         keyExtractor={(item, index) => index}
         ListHeaderComponent={ListHeader}
-        sections={sections}
+        sections={this.sections}
       />
     );
   }
@@ -51,10 +52,10 @@ export default class ConfigView extends React.Component {
           {item.value && <Color value={item.value}/>}
         </SectionContent>
       );
-    } else if (item.id != undefined){
+    } else if (item.id !== undefined) {
       return (<SectionContent>
         <Text style={styles.sectionContentText}>
-          {"Hallo"}
+          {item.value}
         </Text>
       </SectionContent>)
     } else {
