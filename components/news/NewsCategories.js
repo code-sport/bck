@@ -3,6 +3,7 @@ import {View, Text, StyleSheet, ActivityIndicator, FlatList} from "react-native"
 import {NewsCategoriesModel} from "../../module/NewsCategoriesModel";
 
 export default class NewsCategories extends React.Component {
+  isMounted = false;
 
   constructor(props) {
     super(props);
@@ -16,6 +17,11 @@ export default class NewsCategories extends React.Component {
 
   componentDidMount() {
     this.getCategoriesFromApi();
+    this.isMounted = true;
+  }
+
+  componentWillUnmount() {
+    this.isMounted = false;
   }
 
   getCategoriesFromApi() {
@@ -26,7 +32,9 @@ export default class NewsCategories extends React.Component {
           if (row) {
             let dataSource = this.state.dataSource;
             dataSource.push(row);
-            this.setState({dataSource: dataSource, isLoading: false});
+            if (this.isMounted) {
+              this.setState({dataSource: dataSource, isLoading: false});
+            }
           }
         },
         error => console.error(error)
