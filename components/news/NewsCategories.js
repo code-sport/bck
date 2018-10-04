@@ -19,19 +19,19 @@ export default class NewsCategories extends React.Component {
   }
 
   getCategoriesFromApi() {
-
     let categoriesParam = this.props.categories;
     categoriesParam.forEach((item) => {
 
       this.model.getItem(item).then(row => {
           if (row) {
-            this.state.dataSource.push(row);
+            let dataSource = this.state.dataSource;
+            dataSource.push(row);
+            this.setState({dataSource: dataSource, isLoading: false});
           }
         },
         error => console.error(error)
       );
     });
-    this.state.isLoading = false;
   }
 
   render() {

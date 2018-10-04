@@ -9,18 +9,22 @@ export default class ConfigView extends React.Component {
     super(props);
     const {manifest} = Constants;
 
-    let categories = [{id: 0, value: "loading ..."}];
-
-    this.sections = [
+    let categories = [{id: 0, name: "loading ..."}];
+    let sections = [
       {data: categories, title: 'Categories'},
       {data: [{value: manifest.version}], title: 'version'},
       {data: [{value: manifest.sdkVersion}], title: 'sdkVersion'},
     ];
 
+    this.state = {sections: sections};
     let categoriesModel = NewsCategoriesModel.getInstance();
     categoriesModel.getItems()
       .then((data) => {
-        categories = data;
+        let sections = this.state.sections;
+        sections.find(
+          section => section.title === 'Categories'
+        ).data = data;
+        this.setState({section: sections});
       }).catch((error) => {
       console.error("Categories couldn't be loaded", error);
     });
@@ -36,7 +40,7 @@ export default class ConfigView extends React.Component {
         stickySectionHeadersEnabled={true}
         keyExtractor={(item, index) => index}
         ListHeaderComponent={ListHeader}
-        sections={this.sections}
+        sections={this.state.sections}
       />
     );
   }
@@ -55,7 +59,7 @@ export default class ConfigView extends React.Component {
     } else if (item.id !== undefined) {
       return (<SectionContent>
         <Text style={styles.sectionContentText}>
-          {item.value}
+          {item.name}
         </Text>
       </SectionContent>)
     } else {
